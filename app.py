@@ -6,12 +6,11 @@ from streamlit_chat import message as st_message
 
 load_dotenv()
 
-BASE_API_URL = "https://api.langflow.astra.datastax.com"
-LANGFLOW_ID = "a98fd801-76d1-41ed-8e76-52c93479eef3" # add from langflow 
-FLOW_ID = "3986bd05-f7d3-43d4-aadb-322e1ee7fb50"
-# APPLICATION_TOKEN = os.environ.get("APP_TOKEN")
-APPLICATION_TOKEN = 'AstraCS:QUruREhCptCezfhalHQcgutK:ebfbdd63250bd1452177ddbdc0b13169a4f5d95094a5979142cf6de02184f218'
-ENDPOINT = "admin"
+BASE_API_URL = os.getenv("BASE_API_URL")
+LANGFLOW_ID = os.getenv("LANGFLOW_ID")
+FLOW_ID = os.getenv("FLOW_ID")
+APPLICATION_TOKEN = os.getenv("APPLICATION_TOKEN")
+ENDPOINT = os.getenv("ENDPOINT")
 
 def run_flow(message: str) -> dict:
     api_url = f"{BASE_API_URL}/lf/{LANGFLOW_ID}/api/v1/run/{ENDPOINT}"
